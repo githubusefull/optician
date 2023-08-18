@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base{
+    section{
+        @apply py-[75px]
+    }
+}
+@layer components{
+    .container {
+        @apply  w-[1440px] px-5 mx-auto
+    }
+    .input {
+      @apply  rounded-[5px]
+    }
+    .time {
+        padding: 12px 8px 8px;
+    }
+    .color {
+      @apply text-red-600  
+    }
+    
+    
+    
+    .btn {
+        @apply bg-primaryColor py-[15px] px-[35px] rounded-[10px] text-white font-[600] mt-[38px]
+    }
+    .btn2 {
+        @apply bg-white py-[10px] px-[30px] rounded-[10px] text-primaryColor font-[800] mt-[38px]
+    }
+    .heading{
+        @apply text-[44px] leading-[54px] font-[700] text-headingColor
+    }
+    .color_red {
+        @apply text-[20px] leading-[14px] font-[500] text-red-600  
+      }
+    .text__para{
+        @apply text-[18px] leading-[30px] font-[400] text-textColor mt-[18px]
+    }
+}
+@media only screen and (max-width: 1024px){
+.container {
+    @apply w-full;
+}
+section {
+    @apply py-[35px];
+}
+}
+@media only screen and (max-width: 768px){
+    .heading{
+        @apply text-[26px] leading-[36px];
+    }
+    .text_para{
+        @apply text-[16px] leading-7 mt-3;
+    }
+}
+
