@@ -1,0 +1,14 @@
+{
+  "name": "optician",
+  "version": "1.0.0",
+  "description": "1.react.js\r 2.javascript\r 3.redux\r 4.tailwind css",
+  "main": "index.js",
+  "scripts": {
+    "build": "cd back && npm install && npm run build && cd ../front && npm install && npm run build",
+    "start": "node back/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "keywords": []
+}
