@@ -8,14 +8,17 @@ import  cors from  'cors';
 import path from 'path'
 
 dotenv.config();
-mongoose.connect(process.env.MONGO_URL)
-.then(() => {
-  console.log('connected to optician DB');
-})
-.catch((err) => {
-  console.log(err.message);
-})
-const app = express();
+const MONGO_URL = process.env.MONGO_URL || 'mongodb://localhost/myscript'
+mongoose.set('strictQuery', true)
+mongoose.connect(MONGO_URL).then(() => {console.log('myscript connected to mongodb')})
+.catch(() => {console.log('myscript error connected to mongodb')})
+const app = express()
+app.use(
+    cors({
+      credentials: true,
+      origin: ['http://127.0.0.1:5173'],
+    })
+  )
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(bodyParser.json());
@@ -27,10 +30,19 @@ app.use("/api/users", contactRoute)
 const __dirname = path.resolve();
 
 
+
+
+app.use(express.static(path.join(__dirname, '../../front/dist')))
+app.get('*', (req, res) => 
+res.sendFile(path.join(__dirname, '../../front/dist/index.html'))
+)
+
+
+{/*
 app.use(express.static(path.join(__dirname, '/front/dist')));
 app.get('*', (req, res) => 
-res.sendFile(path.join(__dirname, '/front/dist/index.html'))
-)
+res.sendFile(path.join(__dirname, '/front/dist/index.html')))
+*/}
 
 app.use((err, req, res, next) => {
   res.status(500).send({message: err.message});
