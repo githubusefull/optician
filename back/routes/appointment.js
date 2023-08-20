@@ -28,7 +28,7 @@ router.post("/appointment", async(req, res) => {
   }
 })
 router.get('/appointments', async (req, res) => {
-  const users = await Appointment.find();
+  const users = await Appointment.find({user : req.params._id});
   res.send(users);
 })
 export default router
