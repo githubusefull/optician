@@ -8,7 +8,14 @@
     "start": "node back/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/githubusefull/optician.git"
+  },
   "author": "",
   "license": "ISC",
-  "keywords": []
+  "bugs": {
+    "url": "https://github.com/githubusefull/optician/issues"
+  },
+  "homepage": "https://github.com/githubusefull/optician#readme"
 }
