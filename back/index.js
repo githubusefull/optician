@@ -8,10 +8,10 @@ import  cors from  'cors';
 import path from 'path'
 
 dotenv.config();
-const MONGO_URL = process.env.MONGO_URL || 'mongodb://localhost/myscript'
+const MONGO = process.env.MONGO || 'mongodb://localhost/myscript'
 mongoose.set('strictQuery', true)
-mongoose.connect(MONGO_URL).then(() => {console.log('myscript connected to mongodb')})
-.catch(() => {console.log('myscript error connected to mongodb')})
+mongoose.connect(MONGO).then(() => {console.log('optician connected to mongodb')})
+.catch(() => {console.log('optician error connected to mongodb')})
 const app = express()
 app.use(
     cors({
