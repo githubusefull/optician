@@ -8,7 +8,7 @@ import  cors from  'cors';
 import path from 'path'
 
 dotenv.config();
-const MONGO = process.env.MONGO || 'mongodb://localhost/myscript'
+const MONGO = process.env.MONGO || 'mongodb://localhost/optician'
 mongoose.set('strictQuery', true)
 mongoose.connect(MONGO).then(() => {console.log('optician connected to mongodb')})
 .catch(() => {console.log('optician error connected to mongodb')})
