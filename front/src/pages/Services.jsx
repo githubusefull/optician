@@ -23,7 +23,7 @@ const Services = () => {
     const handleSubm = async (e) => {
     e.preventDefault();
     try {
-    const url = "http://localhost:5000/api/optician/appointment";
+    const url = "/appointment";
     const {data:res} = await axios.post(url, data);
     ctxDispatch({type:'USER_SIGNIN', payload: data});
     localStorage.setItem('userInfo', JSON.stringify(data));
