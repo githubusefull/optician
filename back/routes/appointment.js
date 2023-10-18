@@ -4,29 +4,14 @@ import Appointment from "../models/appointment.js";
 
 const router = express.Router();
 
-router.post("/appointment", async(req, res) => {
-  const {date,fullname,email,phone,pm,am} = req.body;
-  try{    
-    const oldUser = await Appointment.findOne({email:req.body.email});
-    if (oldUser) {
-     return res
-     .status(402)
-     .send({ error: "User Exist"});
-    }
-
-    await Appointment.create({
-      date,
-      fullname,
-      email,
-      phone,
-      pm,
-      am,
-    });
-    res.send({status:"Ok"})
-  } catch (error) {
-    res.send({status:"Error"})
-  }
+router.post('/appointment',  (req, res) => {
+  const {date, email, fullname, phone, am, pm} = req.body;
+ 
+  Appointment.create({date, email, fullname, phone, am, pm})
+  .then(users => res.json(users))
+  .catch(err => res.json(err))
 })
+ 
 router.get('/appointments', async (req, res) => {
   const users = await Appointment.find({user : req.params._id});
   res.send(users);

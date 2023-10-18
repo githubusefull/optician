@@ -6,16 +6,17 @@ const Appointments = () => {
     const [results, setResults] = useState([]);
     async function getData(){
     
-      const data = await axios.get("http://localhost:5000/api/optician/appointments");
+      const data = await axios.get("http://localhost:5001/optician/appointments");
      setResults(data.data);
-     console.log(data.data) }
+     //console.log(data.data) 
+    }
    useEffect(()=> {
     getData();
     },[]);
     
   return (
     <div>
-      <div className="bg-primaryColor w-auto h-screen mx-5 mt-20  font-[600] rounded-lg">
+      <div className="bg-primaryColor w-auto h-full mx-5 mt-20  font-[600] rounded-lg">
         <p className='flex justify-center p-8 text-4xl font-[400] text-white'>
           <p className="hidden md:block">
           Appointments
@@ -57,11 +58,11 @@ const Appointments = () => {
     </td>
     {user.pm === "" ? 
     <td className='p-3 text-sm text-white  text-center'>
-    12:00 PM
+     08:00 AM
     </td> : null}
     {user.am === "" ? 
      <td className='p-3 text-sm text-white  text-center'>
-     08:00 AM 
+      14:00 PM
      </td>: null}
    
 </tr>
@@ -77,10 +78,8 @@ const Appointments = () => {
 {
 results.map((user) => {
    return (
-<div className="max-w-sm p-6 shadow  md:hidden" key={user._id}>
-<p className="flex justify-center p-1 text-1xl font-[700] text-white">
-          User
-        </p>
+    <div key={user._id}>
+<div className="max-w-sm p-6 shadow m-4 md:hidden border-solid border-2 rounded-lg border-white" key={user._id}>
     <div className="text-[8px] items-center font-[700] text-white p-1">
         Full Name : {user.fullname}
     </div>
@@ -95,15 +94,16 @@ results.map((user) => {
     </div>
     {user.pm === "" ? 
     <div className="text-[8px] items-center font-[700] text-white p-1">
-        Time :  12:00 PM
+        Time :  08:00 AM
     </div>
     : null}
     {user.am === "" ? 
     <div className="text-[8px] items-center font-[700] text-white p-1">
-        Time :  08:00 AM
+        Time :  14:00 PM
     </div>
     : null}
     
+</div>
 </div>
  ) })
 }

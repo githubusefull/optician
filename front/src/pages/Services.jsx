@@ -1,3 +1,5 @@
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable no-unused-vars */
 import axios from 'axios';
 import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -5,46 +7,34 @@ import { toast } from 'react-toastify';
 import { Redux } from '../redux';
 const Services = () => {
  
-  
-  const navigate = useNavigate();
-  const {dispatch: ctxDispatch } = useContext(Redux);
- 
-  const [data, setData] = useState({
-    date: "",
-    fullname:"",
-    email:"",
-    phone:""
-  });
-   const handleChange = ({currentTarget:input}) => {
-    setData({...data, [input.name]:input.value});
-   
-    }
+  const [loading, setLoading] = useState(false);
+  const [date, setDate] = useState("");
+  const [fullname, setFullname] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("")
+  const [pm, setPm] = useState("")
+  const [am, setAm] = useState("")
+ const navigate = useNavigate();
+ const {dispatch: ctxDispatch } = useContext(Redux);
     
-    const handleSubm = async (e) => {
-    e.preventDefault();
-    try {
-    const url = "/appointment";
-    const {data:res} = await axios.post(url, data);
-    ctxDispatch({type:'USER_SIGNIN', payload: data});
-    localStorage.setItem('userInfo', JSON.stringify(data));
-    console.log(res,data);
-    {
-      toast.success('Booking Successfully', {
-        position: "top-center",
-              autoClose: 1000,
-              hideProgressBar: true,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme:"dark",
-      });
-    }
-    navigate("/")
-    } catch (error){
-      
-      {
-        toast.error('Booking Error', {
+ 
+
+
+    const handleSubmit = (e) => {
+      e.preventDefault();
+         const {data} = axios.post('http://localhost:5001/optician/appointment', {
+       date,
+       email,
+       fullname,
+       phone,
+       am,
+       pm       
+      })
+      .then(result => {console.log(result)
+       localStorage.setItem("userInfo", JSON.stringify(result.data))
+       ctxDispatch({type:'USER_SIGNIN', payload: result.data});
+       setLoading(true)
+        toast.success('Booking Successfully', {
           position: "top-center",
                 autoClose: 1000,
                 hideProgressBar: true,
@@ -54,58 +44,55 @@ const Services = () => {
                 progress: undefined,
                 theme:"dark",
         });
-      }
-      navigate("/")
-     
-    }
-    
-    } 
+       navigate("/")})
+      .catch(err => console.log(err)
+      
+      )
+   
+};
+
   return (
    
     <div>
-      <form onSubmit={handleSubm} >
+      <form onSubmit={handleSubmit} >
         <div className='bg-primaryColor w-auto h-screen mx-5 mt-20  font-[600] rounded-lg'>
           <p className='flex justify-center p-8 text-4xl font-[400] text-white'>Your Appointment</p>
+          {loading && (
+                  <span className="loading loading-spinner loading-md"></span>
+                )}
           <div className='flex justify-center mb-2'>
          </div>
           <div className='flex justify-center p-2'> 
-            <input type='date' required
+            <input type='date'
             placeholder='MM-DD-YYYY'
-           name="date"
-           value={data.date}
-           onChange={handleChange} 
+            name="date" 
+            onChange={(e) => setDate(e.target.value)}
            className={'input p-6 w-[300px] h-[22px] rounded-[5px] placeholder:text-textColor font-[700]'} 
             />
          </div>
-         <div className='flex justify-center p-2 mt-1'>
-             
-            <input type='text' required
-           name="fullname"
-           value={data.fullname}
-           placeholder='Full Name'
-           onChange={handleChange} 
+         <div className='flex justify-center p-2 mt-1'>  
+            <input type='text' 
+            placeholder='fullname'
+           name="Fullname"
+           onChange={(e) => setFullname(e.target.value)}
            className={'input p-6  w-[300px] h-[22px] rounded-[5px] placeholder:text-textColor font-[700]'} 
             />
  
          </div>
-         <div className='flex justify-center p-2 mt-1'>
-             
-            <input type='email' required
+         <div className='flex justify-center p-2 mt-1'> 
+            <input type='email' 
            name="email"
-           value={data.email}
-           placeholder='Email'
-           onChange={handleChange} 
+           placeholder="Email"
+           onChange={(e) => setEmail(e.target.value)}
            className={'input p-6  w-[300px] h-[22px] rounded-[5px] placeholder:text-textColor font-[700]'} 
             />
  
          </div>
-         <div className='flex justify-center p-2 mt-1'>
-             
-             <input type='number' required
-            name="phone"
-            value={data.phone}
-            placeholder='Phone'
-            onChange={handleChange} 
+         <div className='flex justify-center p-2 mt-1'> 
+             <input type='number'
+              name="phone"
+              placeholder='Phone'
+              onChange={(e) => setPhone(e.target.value)}
             className={'input p-6 w-[300px] h-[22px] rounded-[5px] placeholder:text-textColor font-[700]'} 
              />
   
@@ -115,8 +102,7 @@ const Services = () => {
          <span className="flex font-[500] text-white mr-2 mt-0" >14:00 PM</span>
           <label htmlFor="pm" className="bg-white rounded-[10px] cursor-pointer relative w-10 h-6" >
             <input type="checkbox"  name="pm"  id="pm" 
-            value={data.pm}
-            onChange={handleChange} 
+            onChange={(e) => setPm(e.target.value)}
             className="sr-only peer"/>
             <span className="w-2/5 h-3/5 bg-blue-400 absolute rounded-full left-1 top-1
             peer-checked:bg-primaryColor peer-checked:left-5 translate-all duration-500"></span>
@@ -126,8 +112,7 @@ const Services = () => {
          <span className="flex font-[500] text-white mr-2 mt-0" >08:00 AM</span>
           <label htmlFor="am" className="bg-white rounded-[10px] cursor-pointer relative w-10 h-6" >
             <input type="checkbox"   name="am"  id="am"
-             value={data.am}
-             onChange={handleChange} 
+             onChange={(e) => setAm(e.target.value)}
             className="sr-only peer"/>
             <span className="w-2/5 h-3/5 bg-blue-400 absolute rounded-full left-1 top-1
             peer-checked:bg-primaryColor peer-checked:left-5 translate-all duration-500"></span>
