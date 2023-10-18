@@ -55,7 +55,7 @@ const Services = () => {
    
     <div>
       <form onSubmit={handleSubmit} >
-        <div className='bg-primaryColor w-auto h-screen mx-5 mt-20  font-[600] rounded-lg'>
+        <div className='bg-primaryColor w-auto h-full mx-5 mt-20  font-[600] rounded-lg'>
           <p className='flex justify-center p-8 text-4xl font-[400] text-white'>Your Appointment</p>
           {loading && (
                   <span className="loading loading-spinner loading-md"></span>
