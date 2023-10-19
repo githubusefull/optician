@@ -65,7 +65,7 @@ const Contact = () => {
 <div>    
 <div>
       <form onSubmit={handleSubm} >
-        <div className='bg-primaryColor w-auto h-screen mx-5 mt-20  font-[600] rounded-lg'>
+        <div className='bg-primaryColor w-auto h-full mx-5 mt-20  font-[600] rounded-lg'>
         <p className='flex justify-center p-8 text-4xl font-[400] text-white'>Your Contact</p>
 
           <div className='flex justify-center mb-2'>
@@ -100,7 +100,7 @@ const Contact = () => {
             value={data.contact}
             placeholder='Contact'
             onChange={handleChange} 
-            className={'input p-4 w-[300px] h-[122px]  placeholder:text-textColor font-[700]'} 
+            className={'input p-4 w-[300px] h-[100px]  placeholder:text-textColor font-[700]'} 
              />
   
           </div> 

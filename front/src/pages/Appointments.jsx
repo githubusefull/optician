@@ -80,25 +80,25 @@ results.map((user) => {
    return (
     <div key={user._id}>
 <div className="max-w-sm p-6 shadow m-4 md:hidden border-solid border-2 rounded-lg border-white" key={user._id}>
-    <div className="text-[8px] items-center font-[700] text-white p-1">
+    <div className="text-[15px] items-center font-[700] text-white p-1">
         Full Name : {user.fullname}
     </div>
-    <div className="text-[8px] items-center font-[700] text-white p-1">
+    <div className="text-[15px] items-center font-[700] text-white p-1">
         Email : {user.email} 
     </div>
-    <div className="text-[8px] items-center font-[700] text-white p-1">
+    <div className="text-[15px] items-center font-[700] text-white p-1">
         Phone : {user.phone} 
     </div>
-    <div className="text-[8px] items-center font-[700] text-white p-1">
+    <div className="text-[15px] items-center font-[700] text-white p-1">
         Date : {user.date}
     </div>
     {user.pm === "" ? 
-    <div className="text-[8px] items-center font-[700] text-white p-1">
+    <div className="text-[15px] items-center font-[700] text-white p-1">
         Time :  08:00 AM
     </div>
     : null}
     {user.am === "" ? 
-    <div className="text-[8px] items-center font-[700] text-white p-1">
+    <div className="text-[15px] items-center font-[700] text-white p-1">
         Time :  14:00 PM
     </div>
     : null}

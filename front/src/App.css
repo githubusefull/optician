@@ -76,3 +76,15 @@ body {
     display: block;
   }
 }
+@media(max-width:450px) {
+  .disc {
+      font-size: 13px;
+      padding: 3px;
+  }
+}
+@media(max-width:450px) {
+  .project-card {
+     width: 135px;
+     padding: 2px 4px;
+  }
+}
