@@ -45,9 +45,10 @@ const Services = () => {
                 theme:"dark",
         });
        navigate("/")})
+       {/*   
       .catch(err => console.log(err)
       
-      )
+      )*/}
    
 };
 
