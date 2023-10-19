@@ -6,7 +6,7 @@ const Appointments = () => {
     const [results, setResults] = useState([]);
     async function getData(){
     
-      const data = await axios.get("http://localhost:5001/optician/appointments");
+      const data = await axios.get("https://optician-back.vercel.app/optician/appointments");
      setResults(data.data);
      //console.log(data.data) 
     }

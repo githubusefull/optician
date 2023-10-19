@@ -22,7 +22,7 @@ const Services = () => {
 
     const handleSubmit = (e) => {
       e.preventDefault();
-         const {data} = axios.post('http://localhost:5001/optician/appointment', {
+         const {data} = axios.post('https://optician-back.vercel.app/optician/appointment', {
        date,
        email,
        fullname,
