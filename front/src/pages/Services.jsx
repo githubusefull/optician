@@ -72,10 +72,8 @@ const Services = () => {
             placeholder='dd/mm/yyyy'
             name="date" 
             onChange={(e) => setDate(e.target.value)}
-            type="text"
-            onFocus="(this.type='date')"
-            onBlur="(this.type='text')"
-            id="date" 
+            type="date" 
+            required
            className={'textbox-n  p-6 w-[300px] h-[22px] placeholder:text-textColor  rounded-[5px] font-[700]'} 
             />
          </div>
