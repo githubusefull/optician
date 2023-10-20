@@ -4,9 +4,10 @@ const Login = () => {
     <div>
       <form>
         <div className="bg-primaryColor w-auto h-full mx-5 mt-20  font-[600] rounded-lg">
-          <p className="flex justify-center p-8 text-4xl font-[400] text-white">
-            Login
-          </p>
+        <div className='flex justify-center  p-8 text-4xl font-[400] text-white'>
+            <span className='hidden md:block'>Login</span>
+            <span className='md:hidden  text-2xl'>Login</span>
+            </div>
           <div className="flex justify-center mb-2"></div>
 
           <div className="flex justify-center p-2 mt-1">
