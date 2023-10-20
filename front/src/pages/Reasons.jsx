@@ -38,17 +38,11 @@ const Cards = [
 const Reasons = () => {
   return (
     <div className='bg-primaryColor w-auto h-full mx-5 p-8 mt-20 font-[600] rounded-lg'>
-          <div className='flex justify-center p-6 text-4xl  font-[400] text-white'>
-         
-          <p className="hidden md:block">
-            Reasons to See an Optician
-            </p>
+          <div className='flex justify-center  p-8 text-4xl font-[400] text-white'>
+            <span className='hidden md:block'>Reasons To See An Optician</span>
+            <span className='md:hidden  text-2xl'>Reasons To See An Optician</span>
             </div>
-            <div className='flex justify-center p-6 text-[23px]  font-[400] text-white'>
-          <div className="md:hidden">
-            Reasons to See an Optician
-            </div>
-            </div>
+          
           <div className='w-full grid grid-cols-2 sm:grid-cols-4 gap-4 text-center py-2  sm:px-0 my-2'>
           {Cards.map(({id, text2, text1, style}) => (
    <div key={id}

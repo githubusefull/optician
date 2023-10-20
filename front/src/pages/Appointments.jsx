@@ -17,16 +17,10 @@ const Appointments = () => {
   return (
     <div>
       <div className="bg-primaryColor w-auto h-full mx-5 mt-20  font-[600] rounded-lg">
-        <p className='flex justify-center p-8 text-4xl font-[400] text-white'>
-          <p className="hidden md:block">
-          Appointments
-        </p>
-        </p>
-        <p className='flex justify-center p-1 text-2xl font-[400] text-white'>
-          <p className="md:hidden">
-          Appointments
-        </p>
-        </p>  
+      <div className='flex justify-center  p-8 text-4xl font-[400] text-white'>
+            <span className='hidden md:block'>Appointments</span>
+            <span className='md:hidden  text-2xl'>Appointments</span>
+            </div>
         <div className='overflow-auto shadow hidden md:block'>   
      <table className='w-full'>
     <thead className='bg-white'>

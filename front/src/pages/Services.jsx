@@ -57,7 +57,11 @@ const Services = () => {
     <div>
       <form onSubmit={handleSubmit} >
         <div className='bg-primaryColor w-auto h-full mx-5 mt-20  font-[600] rounded-lg'>
-          <p className='flex justify-center p-8 text-4xl font-[400] text-white'>Your Appointment</p>
+          <div className='flex justify-center  p-8 text-4xl font-[400] text-white'>
+            <span className='hidden md:block'>Your Appointment</span>
+            <span className='md:hidden  text-2xl'>Your Appointment</span>
+            </div>
+            
           {loading && (
                   <span className="loading loading-spinner loading-md"></span>
                 )}
@@ -68,7 +72,7 @@ const Services = () => {
             placeholder="DD-MM-YYYY"
             name="date" 
             onChange={(e) => setDate(e.target.value)}
-           className={'input p-6 w-[300px] h-[22px] rounded-[5px] placeholder-red-500 font-[700]'} 
+           className={'input p-6 w-[300px] h-[22px] rounded-[5px]font-[700] text-red-700'} 
             />
          </div>
          <div className='flex justify-center p-2 mt-1'>  
