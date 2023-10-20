@@ -72,8 +72,8 @@ const Appointments = () => {
 {
 results.map((user) => {
    return (
-    <div key={user._id}>
-<div className="max-w-sm p-6 shadow m-4 md:hidden border-solid border-2 rounded-lg border-white" key={user._id}>
+    <div key={user._id} className='p-1'>
+<div className="max-w-sm p-6 shadow m-2 md:hidden border-solid border-2 rounded-lg border-white" key={user._id}>
     <div className="text-[15px] items-center font-[700] text-white p-1">
         Full Name : {user.fullname}
     </div>
