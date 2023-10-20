@@ -56,3 +56,6 @@ section {
     }
 }
 
+input[type=date]:invalid::-webkit-datetime-edit {
+    color: #999;
+}
