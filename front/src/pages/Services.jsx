@@ -72,7 +72,7 @@ const Services = () => {
             placeholder="dd-mm-yyyy"
             name="date" 
             onChange={(e) => setDate(e.target.value)}
-           className={'dateinput p-6 w-[300px] h-[22px] placeholder:bg-red-600 rounded-[5px] font-[700]'} 
+           className={'dateinput p-6 w-[300px] h-[22px] bg-primaryColor rounded-[5px] font-[700]'} 
             />
          </div>
          <div className='flex justify-center p-2 mt-1'>  

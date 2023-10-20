@@ -89,5 +89,6 @@ body {
   }
 }
 .dateinput {
-  color: black;
+  color: white;
+  background-color: blue;
 }
